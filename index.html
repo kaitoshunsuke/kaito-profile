@@ -23,6 +23,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Space Grotesk",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+p,h1,h2,h3,h4,h5{word-break:auto-phrase;overflow-wrap:break-word}
 ::selection{background:var(--accent);color:#000}
 
 .mono{font-family:"JetBrains Mono",monospace}
@@ -54,8 +55,8 @@ body::before{
 /* ====== HERO ====== */
 .hero{
   min-height:100vh;position:relative;padding:100px 40px 40px;
-  display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
-  overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  overflow:hidden;max-width:1200px;margin:0 auto;
 }
 .hero::before{
   content:"";position:absolute;inset:0;pointer-events:none;
@@ -155,6 +156,7 @@ body::before{
 .band{
   background:var(--accent);color:#000;padding:18px 0;overflow:hidden;
   border-top:1px solid rgba(0,0,0,.2);border-bottom:1px solid rgba(0,0,0,.2);
+  max-width:100%;
 }
 .band .track{display:flex;gap:50px;white-space:nowrap;animation:marquee 30s linear infinite}
 @keyframes marquee{to{transform:translateX(-50%)}}
@@ -162,8 +164,8 @@ body::before{
 .band .track .x{font-size:20px;transform:translateY(-3px)}
 
 /* ====== SECTIONS ====== */
-section{padding:120px 40px;position:relative}
-.container{max-width:1240px;margin:0 auto}
+section{padding:120px 40px;position:relative;max-width:1200px;margin-left:auto;margin-right:auto}
+.container{max-width:1200px;margin:0 auto}
 .section-label{
   display:inline-flex;align-items:center;gap:10px;
   font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-mute);
@@ -181,9 +183,6 @@ section{padding:120px 40px;position:relative}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .about-text{font-size:15px;line-height:1.9;color:#d8d4c8}
 .about-text p{margin-bottom:18px}
-.about-text p:first-letter{
-  font-family:"Bebas Neue",sans-serif;font-size:56px;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent);
-}
 .about-text .hl{background:linear-gradient(transparent 60%, rgba(214,255,63,.25) 60%);padding:0 2px}
 
 /* Info grid */
@@ -333,6 +332,7 @@ section{padding:120px 40px;position:relative}
 /* ====== CTA ====== */
 .cta{
   background:var(--accent);color:#000;padding:120px 40px 40px;position:relative;overflow:hidden;
+  max-width:100%;
 }
 .cta::before{
   content:"";position:absolute;inset:0;
