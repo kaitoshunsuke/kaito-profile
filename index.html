@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>皆藤駿介 / Shunsuke Kaito — 自己紹介</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#0a0a0b;
+  --bg-2:#111114;
+  --panel:#17171b;
+  --panel-2:#1e1e23;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --ink:#f5f2ea;
+  --ink-mute:#8a8a92;
+  --accent:#d6ff3f;   /* neon lime — 数字のハイライト */
+  --accent-2:#ff5a3c; /* 差し色 */
+  --blue:#6aa8ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Space Grotesk",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:#000}
+
+.mono{font-family:"JetBrains Mono",monospace}
+.bebas{font-family:"Bebas Neue",sans-serif;letter-spacing:.01em}
+.mincho{font-family:"Shippori Mincho",serif}
+
+/* Grain */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity:.25;mix-blend-mode:overlay;
+}
+
+/* ====== Top Nav ====== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 32px;background:linear-gradient(to bottom, rgba(10,10,11,.85), transparent);
+  backdrop-filter:blur(8px);
+}
+.nav .brand{display:flex;align-items:center;gap:10px;font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:.1em}
+.nav .brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.3;transform:scale(.7)}}
+.nav .meta{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;color:var(--ink-mute);display:flex;gap:24px}
+.nav .meta span{display:flex;align-items:center;gap:8px}
+.nav .meta .on{color:var(--accent)}
+@media(max-width:720px){.nav .meta{display:none}}
+
+/* ====== HERO ====== */
+.hero{
+  min-height:100vh;position:relative;padding:100px 40px 40px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 15% 85%, rgba(214,255,63,.09), transparent 50%),
+    radial-gradient(ellipse at 85% 10%, rgba(255,90,60,.08), transparent 55%);
+}
+
+.hero-left{position:relative;z-index:2}
+.hero .tag-row{display:flex;gap:10px;align-items:center;margin-bottom:32px;flex-wrap:wrap}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  padding:7px 12px;border:1px solid var(--line-2);border-radius:999px;color:var(--ink-mute);
+}
+.tag .d{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.tag.solid{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+
+.hero h1{
+  font-family:"Shippori Mincho",serif;font-weight:800;
+  font-size:clamp(40px,6.2vw,88px);line-height:1.05;letter-spacing:-.02em;
+  margin-bottom:32px;
+}
+.hero h1 .line1{display:block;color:var(--ink-mute);font-size:.55em;font-weight:500;letter-spacing:.02em;margin-bottom:16px}
+.hero h1 .big{display:block}
+.hero h1 .hi{
+  background:linear-gradient(90deg, var(--accent) 0%, var(--accent) 60%, #b8e036 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;
+}
+.hero h1 strike{color:var(--ink-mute);text-decoration-color:var(--accent-2);text-decoration-thickness:4px}
+.hero h1 .x38{color:var(--accent);font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:0;font-size:1.05em;display:inline-block;line-height:.9;vertical-align:baseline;padding:0 .05em}
+.hero h1 .bai{color:var(--accent);font-weight:800;font-family:"Shippori Mincho",serif}
+
+.hero .name-row{
+  display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;
+  padding-top:24px;border-top:1px solid var(--line);
+}
+.hero .name{
+  font-family:"Shippori Mincho",serif;font-size:34px;font-weight:700;line-height:1;
+}
+.hero .name small{display:block;font-family:"Space Grotesk",sans-serif;font-size:13px;font-weight:400;color:var(--ink-mute);letter-spacing:.1em;margin-top:8px}
+.hero .brand-chip{
+  margin-left:auto;display:inline-flex;align-items:center;gap:10px;
+  font-family:"Bebas Neue",sans-serif;font-size:20px;letter-spacing:.12em;
+  padding:10px 16px;background:var(--panel);border:1px solid var(--line-2);border-radius:4px;
+}
+.hero .brand-chip .c{color:var(--accent)}
+
+/* Right — photo card */
+.hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center}
+.photo-card{
+  position:relative;width:100%;max-width:460px;aspect-ratio:1/1;
+  background:var(--panel);border:1px solid var(--line-2);border-radius:8px;overflow:hidden;
+  box-shadow:0 40px 100px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(214,255,63,.1);
+  transform:rotate(-1.5deg);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.photo-card:hover{transform:rotate(0) scale(1.02)}
+.photo-card img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(.92)}
+.photo-card .scanlines{
+  position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(to bottom, transparent 0 3px, rgba(0,0,0,.08) 3px 4px);
+  mix-blend-mode:multiply;opacity:.5;
+}
+.photo-card .corner{
+  position:absolute;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;
+  color:var(--accent);background:rgba(0,0,0,.7);padding:4px 8px;text-transform:uppercase;
+}
+.photo-card .c-tl{top:10px;left:10px}
+.photo-card .c-tr{top:10px;right:10px;color:var(--ink)}
+.photo-card .c-bl{bottom:10px;left:10px;color:var(--ink)}
+.photo-card .c-br{bottom:10px;right:10px;color:var(--accent)}
+
+.photo-float{
+  position:absolute;bottom:-20px;right:-10px;transform:rotate(6deg);
+  background:var(--accent);color:#000;padding:10px 16px;border-radius:4px;
+  font-family:"Bebas Neue",sans-serif;font-size:18px;letter-spacing:.1em;
+  box-shadow:0 12px 30px -10px rgba(214,255,63,.5);
+}
+.photo-float2{
+  position:absolute;top:-12px;left:-20px;transform:rotate(-4deg);
+  background:var(--bg);color:var(--ink);padding:8px 14px;border-radius:4px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  border:1px solid var(--line-2);
+}
+
+.hero-footer{
+  grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;color:var(--ink-mute);text-transform:uppercase;
+  padding-top:40px;margin-top:20px;border-top:1px solid var(--line);flex-wrap:wrap;gap:10px;
+}
+.scroll-line{display:flex;align-items:center;gap:12px}
+.scroll-line .l{width:60px;height:1px;background:var(--line-2);position:relative;overflow:hidden}
+.scroll-line .l::after{content:"";position:absolute;inset:0;background:var(--accent);transform:translateX(-100%);animation:slideIn 2.2s ease-in-out infinite}
+@keyframes slideIn{50%{transform:translateX(0)}100%{transform:translateX(100%)}}
+
+/* ====== MARQUEE ====== */
+.band{
+  background:var(--accent);color:#000;padding:18px 0;overflow:hidden;
+  border-top:1px solid rgba(0,0,0,.2);border-bottom:1px solid rgba(0,0,0,.2);
+}
+.band .track{display:flex;gap:50px;white-space:nowrap;animation:marquee 30s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.band .track span{font-family:"Bebas Neue",sans-serif;font-size:38px;letter-spacing:.05em;display:flex;gap:50px;align-items:center}
+.band .track .x{font-size:20px;transform:translateY(-3px)}
+
+/* ====== SECTIONS ====== */
+section{padding:120px 40px;position:relative}
+.container{max-width:1240px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-mute);
+  margin-bottom:22px;
+}
+.section-label::before{content:"";width:24px;height:1px;background:var(--accent)}
+.section-title{
+  font-family:"Shippori Mincho",serif;font-size:clamp(36px,5.2vw,72px);line-height:1.05;
+  font-weight:800;letter-spacing:-.02em;margin-bottom:60px;max-width:900px;
+}
+.section-title em{font-style:normal;color:var(--accent)}
+
+/* ====== ABOUT ====== */
+.about{background:var(--bg-2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-text{font-size:15px;line-height:1.9;color:#d8d4c8}
+.about-text p{margin-bottom:18px}
+.about-text p:first-letter{
+  font-family:"Bebas Neue",sans-serif;font-size:56px;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent);
+}
+.about-text .hl{background:linear-gradient(transparent 60%, rgba(214,255,63,.25) 60%);padding:0 2px}
+
+/* Info grid */
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line-2);margin-top:20px}
+.info-item{background:var(--bg-2);padding:22px 20px}
+.info-item .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.info-item .v{font-family:"Shippori Mincho",serif;font-size:20px;font-weight:600}
+.info-item .v em{font-style:normal;color:var(--accent)}
+
+/* Likes/interests as sticker chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips .c{
+  font-family:"Space Grotesk",sans-serif;font-size:13px;font-weight:500;
+  padding:8px 14px;border-radius:999px;background:var(--panel);border:1px solid var(--line-2);
+  display:inline-flex;align-items:center;gap:8px;transition:all .2s;
+}
+.chips .c:hover{background:var(--accent);color:#000;border-color:var(--accent);transform:translateY(-2px)}
+.chips .c .ic{font-family:"Bebas Neue",sans-serif;font-size:13px;background:var(--accent);color:#000;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
+.chips .c:hover .ic{background:#000;color:var(--accent)}
+
+/* Career story — timeline as story cards */
+.story{margin-top:10px}
+.story-card{
+  background:var(--panel);border:1px solid var(--line);padding:24px 26px;border-radius:6px;
+  position:relative;margin-bottom:14px;
+}
+.story-card .yr{font-family:"Bebas Neue",sans-serif;font-size:14px;letter-spacing:.15em;color:var(--accent);margin-bottom:8px}
+.story-card h5{font-family:"Shippori Mincho",serif;font-size:20px;font-weight:700;margin-bottom:6px;line-height:1.35}
+.story-card p{font-size:13.5px;line-height:1.7;color:var(--ink-mute)}
+.story-card .icon{
+  position:absolute;top:-10px;right:18px;
+  font-family:"Bebas Neue",sans-serif;font-size:12px;background:var(--bg);
+  padding:4px 10px;border:1px solid var(--line-2);border-radius:4px;letter-spacing:.15em;color:var(--ink-mute);
+}
+.story-card.highlight{border-color:var(--accent);background:linear-gradient(180deg, rgba(214,255,63,.06), transparent)}
+.story-card.highlight h5{color:var(--ink)}
+
+.story-h{
+  display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;
+}
+.story-h .story-card{margin-bottom:0;height:100%}
+.story-arrow{
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Bebas Neue",sans-serif;font-size:28px;color:var(--ink-mute);
+}
+@media (max-width:900px){
+  .story-h{grid-template-columns:1fr;gap:8px}
+  .story-arrow{transform:rotate(90deg);padding:4px 0}
+}
+
+/* ====== NUMBERS ====== */
+.numbers{background:var(--bg)}
+.nums-lead{
+  font-family:"Shippori Mincho",serif;font-size:clamp(22px,2.6vw,32px);
+  color:var(--ink-mute);max-width:700px;margin-bottom:50px;line-height:1.55;
+}
+.nums-lead em{font-style:normal;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:50px}
+.stat-card{
+  background:var(--panel);border:1px solid var(--line);padding:30px 26px;
+  position:relative;overflow:hidden;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;
+}
+.stat-card .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute)}
+.stat-card .v{
+  font-family:"Bebas Neue",sans-serif;font-size:clamp(56px,7vw,96px);line-height:1;
+  color:var(--accent);letter-spacing:-.01em;margin:10px 0;
+}
+.stat-card .v .u{font-size:.45em;color:var(--ink);margin-left:4px}
+.stat-card .d{font-size:12.5px;color:var(--ink-mute);line-height:1.6}
+.stat-card .glyph{
+  position:absolute;bottom:-20px;right:-10px;
+  font-family:"Bebas Neue",sans-serif;font-size:140px;color:rgba(255,255,255,.03);line-height:.8;
+}
+.stat-card.accent{background:var(--accent);color:#000;border-color:var(--accent)}
+.stat-card.accent .k{color:rgba(0,0,0,.5)}
+.stat-card.accent .v{color:#000}
+.stat-card.accent .d{color:rgba(0,0,0,.7)}
+.stat-card.accent .glyph{color:rgba(0,0,0,.08)}
+
+/* Case rows */
+.cases{display:flex;flex-direction:column;gap:10px}
+.case{
+  display:grid;grid-template-columns:1.2fr 1.3fr .6fr;gap:30px;
+  padding:28px 30px;background:var(--panel);border:1px solid var(--line);border-radius:6px;
+  align-items:center;transition:all .3s;cursor:default;
+}
+.case:hover{border-color:var(--accent);transform:translateX(4px);background:var(--panel-2)}
+.case .title{font-family:"Shippori Mincho",serif;font-size:22px;font-weight:700}
+.case .title .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);font-weight:400;margin-top:6px}
+.case .metric{display:flex;gap:28px;flex-wrap:wrap}
+.case .metric .m{}
+.case .metric .ml{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:4px}
+.case .metric .mv{font-family:"Bebas Neue",sans-serif;font-size:34px;letter-spacing:.01em;line-height:1}
+.case .metric .mv .old{color:var(--ink-mute);text-decoration:line-through;text-decoration-color:var(--accent-2);font-size:.7em;margin-right:8px}
+.case .metric .mv .arrow{color:var(--ink-mute);margin:0 4px;font-size:.7em}
+.case .metric .mv .new{color:var(--accent)}
+.case .big-gain{
+  font-family:"Bebas Neue",sans-serif;font-size:54px;color:var(--accent);line-height:1;text-align:right;
+}
+.case .big-gain small{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;color:var(--ink-mute);margin-top:6px;text-transform:uppercase}
+
+@media(max-width:900px){
+  .case{grid-template-columns:1fr;gap:16px}
+  .case .big-gain{text-align:left}
+}
+
+/* ====== MEDIA & SKILL ====== */
+.media{background:var(--bg-2)}
+.media-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,1fr);gap:40px;align-items:stretch}
+.media-grid > *{min-width:0}
+.media-logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;background:var(--line);border:1px solid var(--line-2)}
+.media-logo{
+  background:var(--panel);padding:28px 16px;aspect-ratio:5/3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  transition:all .3s;cursor:default;
+}
+.media-logo:hover{background:var(--accent);color:#000}
+.media-logo:hover .ml-name{color:#000}
+.media-logo .ml-icon{font-family:"Bebas Neue",sans-serif;font-size:32px;color:var(--accent)}
+.media-logo:hover .ml-icon{color:#000}
+.media-logo .ml-name{font-family:"Space Grotesk",sans-serif;font-size:13px;font-weight:500;letter-spacing:.03em}
+.media-logo .ml-sub{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;color:var(--ink-mute);text-transform:uppercase}
+.media-logo:hover .ml-sub{color:rgba(0,0,0,.6)}
+
+.strong-box{
+  background:var(--panel);border:1px solid var(--line-2);border-radius:6px;padding:32px;
+  display:flex;flex-direction:column;
+}
+.strong-box h4{font-family:"Shippori Mincho",serif;font-size:22px;font-weight:700;margin-bottom:20px;display:flex;align-items:baseline;gap:10px}
+.strong-box h4::before{content:"";display:inline-block;width:18px;height:2px;background:var(--accent);transform:translateY(-4px)}
+.strong-box ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.strong-box li{
+  display:grid;grid-template-columns:44px 1fr;align-items:stretch;gap:0;padding:0;
+  background:var(--bg-2);border-radius:6px;overflow:hidden;border:1px solid var(--line);
+  transition:border-color .2s, transform .2s;
+}
+.strong-box li:hover{border-color:var(--accent);transform:translateX(3px)}
+.strong-box li .n{
+  font-family:"Bebas Neue",sans-serif;font-size:22px;color:#000;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;letter-spacing:.05em;
+}
+.strong-box li .t{flex:1;padding:14px 16px}
+.strong-box li .t strong{display:block;font-size:15px;margin-bottom:6px;font-weight:700;font-family:"Shippori Mincho",serif;color:var(--ink)}
+.strong-box li .t span{color:var(--ink-mute);font-size:12.5px;line-height:1.7;display:block}
+
+/* ====== CTA ====== */
+.cta{
+  background:var(--accent);color:#000;padding:120px 40px 40px;position:relative;overflow:hidden;
+}
+.cta::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 60px, rgba(0,0,0,.04) 60px 61px);
+  pointer-events:none;
+}
+.cta-big{
+  font-family:"Shippori Mincho",serif;font-size:clamp(48px,9vw,130px);line-height:.95;
+  font-weight:800;letter-spacing:-.02em;margin-bottom:40px;position:relative;
+}
+.cta-big .sm{display:block;font-size:.3em;font-weight:500;letter-spacing:0;color:rgba(0,0,0,.6);margin-bottom:16px;font-family:"Space Grotesk",sans-serif}
+.cta-big .and{font-family:"Bebas Neue",sans-serif;font-weight:400;font-style:normal}
+
+.cta-action{
+  display:inline-flex;align-items:center;gap:16px;padding:22px 32px;
+  background:#000;color:var(--accent);border-radius:999px;
+  font-family:"Bebas Neue",sans-serif;font-size:28px;letter-spacing:.1em;
+  text-decoration:none;position:relative;overflow:hidden;transition:all .3s;
+}
+.cta-action:hover{transform:translateX(8px)}
+.cta-action .arrow{font-size:24px;transition:transform .3s}
+.cta-action:hover .arrow{transform:translateX(6px)}
+
+.cta-sub{
+  margin-top:28px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,0,0,.6);
+}
+
+.cta-footer{
+  margin-top:100px;padding-top:30px;border-top:1px solid rgba(0,0,0,.2);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,0,0,.7);
+}
+.cta-footer .sig{font-family:"Shippori Mincho",serif;font-size:20px;text-transform:none;letter-spacing:0;font-weight:700;color:#000}
+
+/* ====== STRENGTHS (slides) ====== */
+.strengths{background:var(--bg-2)}
+.str-lead{
+  font-family:"Shippori Mincho",serif;font-size:clamp(20px,2.2vw,26px);color:var(--ink-mute);
+  max-width:760px;margin-bottom:50px;line-height:1.7;
+}
+.str-lead em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 55%, rgba(214,255,63,.3) 55%);padding:0 4px}
+
+.str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.str-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:32px 28px;
+  position:relative;transition:all .35s cubic-bezier(.2,.8,.2,1);
+  display:flex;flex-direction:column;
+}
+.str-card:hover{transform:translateY(-6px);border-color:var(--accent);background:var(--panel-2)}
+.str-card .slide-num{
+  position:absolute;top:18px;right:22px;
+  font-family:"Bebas Neue",sans-serif;font-size:14px;letter-spacing:.2em;color:var(--ink-mute);
+}
+.str-card .slide-num em{font-style:normal;color:var(--accent);font-size:20px;margin-right:2px}
+.str-card .illust{
+  width:100%;aspect-ratio:3/2;background:var(--bg);border:1px solid var(--line);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:26px;
+}
+.str-card .illust svg{width:52%;height:auto;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.str-card h4{
+  font-family:"Shippori Mincho",serif;font-size:20px;font-weight:700;line-height:1.45;
+  margin-bottom:14px;letter-spacing:-.01em;
+}
+.str-card p{font-size:13px;line-height:1.85;color:var(--ink-mute)}
+.str-card p em{font-style:normal;color:var(--ink);font-weight:500}
+.str-card .foot{
+  margin-top:18px;padding-top:16px;border-top:1px dashed var(--line-2);
+  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);
+}
+
+@media (max-width:900px){
+  .str-grid{grid-template-columns:1fr}
+}
+
+/* ====== OUTRO (text-only close) ====== */
+.outro{
+  background:var(--bg);padding:140px 40px 80px;text-align:center;
+}
+.outro .line{
+  font-family:"Shippori Mincho",serif;font-size:clamp(28px,4.4vw,54px);
+  font-weight:700;line-height:1.35;letter-spacing:-.01em;max-width:900px;margin:0 auto;
+}
+.outro .line em{font-style:normal;color:var(--accent)}
+.outro .sub{
+  margin-top:28px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-mute);
+}
+.outro-footer{
+  max-width:1240px;margin:120px auto 0;padding-top:30px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);
+}
+.outro-footer .sig{font-family:"Shippori Mincho",serif;font-size:18px;text-transform:none;letter-spacing:0;font-weight:700;color:var(--ink)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+/* Responsive */
+@media (max-width:900px){
+  section{padding:80px 22px}
+  .nav{padding:14px 22px}
+  .hero{grid-template-columns:1fr;padding:90px 22px 40px;gap:40px}
+  .hero-right{order:-1}
+  .photo-card{max-width:340px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .media-grid{grid-template-columns:1fr;gap:40px}
+  .media-logos{grid-template-columns:repeat(2,1fr)}
+  .info-grid{grid-template-columns:1fr}
+}
+
+@media (max-width:1100px){
+  .media-grid{grid-template-columns:1fr !important;gap:40px !important}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="brand"><span class="dot"></span>KAITO / 皆藤</div>
+  <div class="meta">
+    <span><span class="on">●</span> AVAILABLE FOR SLACK</span>
+    <span id="clock">—</span>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="tag-row">
+      <span class="tag"><span class="d"></span>Self&nbsp;Intro&nbsp;/&nbsp;2026</span>
+      <span class="tag">内部限定 · INTERNAL</span>
+      <span class="tag solid">Open for DM</span>
+    </div>
+
+    <h1>
+      <span class="line1">— 御社が第一志望です。</span>
+      <span class="big">根気強い<span class="hi">男</span>。</span>
+      <span class="big" style="font-size:.55em;font-weight:700;color:var(--ink);margin-top:18px;letter-spacing:-.01em">皆藤 駿介。</span>
+    </h1>
+
+    <div class="name-row">
+      <div class="name">
+        <small>Shunsuke Kaito · Performance Marketer</small>
+      </div>
+      <div class="brand-chip"><span class="c">◆</span>OAR&nbsp;FREE</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div style="position:relative">
+      <div class="photo-card">
+        <img src="assets/kaito.png" alt="皆藤駿介">
+        <div class="scanlines"></div>
+        <span class="corner c-tl">ID · 001</span>
+        <span class="corner c-tr">26 Y/O</span>
+        <span class="corner c-bl">CHIBA &rarr; TOKYO</span>
+        <span class="corner c-br">◉ REC</span>
+      </div>
+      <div class="photo-float">根気強さ 100%</div>
+      <div class="photo-float2">MEMBER FILE</div>
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <span>FILE / 01 &nbsp;· &nbsp;SHUNSUKE KAITO</span>
+    <span class="scroll-line">SCROLL <span class="l"></span> CASE FILES</span>
+    <span>OAR FREE INC. / 2026</span>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="band">
+  <div class="track">
+    <span>× 38 SALES&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;CPA −86%&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;ROAS 400%&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;19 PROJECTS&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;CV ×10&nbsp;&nbsp;<span class="x">◆</span></span>
+    <span>× 38 SALES&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;CPA −86%&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;ROAS 400%&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;19 PROJECTS&nbsp;&nbsp;<span class="x">◆</span>&nbsp;&nbsp;CV ×10&nbsp;&nbsp;<span class="x">◆</span></span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about">
+  <div class="container">
+    <div class="section-label reveal">01 / こんな人</div>
+    <h2 class="section-title reveal d1">千葉県市原市<br>出身、<em>スカイツリー</em>の近く<br>で暮らしてます。</h2>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>26歳。新卒で入った会社が事実上の倒産をキメて、<span class="hl">同僚6人でそのまま集団移籍</span>。ところが移った先でも音楽性の違いで揉めて離脱、気づけば現在の会社に流れ着いていました。</p>
+        <p>仕事は運用型広告。弁護士・税理士・司法書士などの士業クライアントと、女性ターゲット商材が得意領域。数字と向き合う現場が好きで、逆に会議ばかりの日は夕方あたりから元気がなくなります。</p>
+        <p>プライベートはNIKEのスニーカーとハンバーガーとHIPHOPと散歩で構成されています。<span class="hl">人間としては単純です。</span></p>
+
+        <div class="chips">
+          <span class="c"><span class="ic">N</span>NIKE専門オタク</span>
+          <span class="c"><span class="ic">B</span>ハンバーガー狂</span>
+          <span class="c"><span class="ic">H</span>HIPHOP</span>
+          <span class="c"><span class="ic">W</span>散歩</span>
+          <span class="c"><span class="ic">☕</span>カフェ</span>
+        </div>
+      </div>
+
+      <div class="reveal d1">
+        <div class="info-grid">
+          <div class="info-item"><div class="k">Name</div><div class="v">皆藤 駿介</div></div>
+          <div class="info-item"><div class="k">Age</div><div class="v"><em>26</em></div></div>
+          <div class="info-item"><div class="k">From</div><div class="v">千葉県 <em>市原市</em></div></div>
+          <div class="info-item"><div class="k">Base</div><div class="v">東京 <em>押上</em>エリア</div></div>
+          <div class="info-item"><div class="k">Role</div><div class="v">Performance <em>Marketer</em></div></div>
+          <div class="info-item"><div class="k">Company</div><div class="v"><em>OAR FREE</em></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Career story: full-width horizontal timeline -->
+    <div class="story-wrap reveal">
+      <div class="section-label" style="margin-top:56px;margin-bottom:20px">02.1 / キャリアという名の漂流記</div>
+      <div class="story-h">
+        <div class="story-card">
+          <div class="icon">CH.1</div>
+          <div class="yr">NEW GRAD</div>
+          <h5>新卒で入社 → 事実上倒産</h5>
+          <p>希望に満ちた社会人1年目。会社は想像以上にフワッと消えました。</p>
+        </div>
+        <div class="story-arrow">→</div>
+        <div class="story-card">
+          <div class="icon">CH.2</div>
+          <div class="yr">GANG × 6</div>
+          <h5>同僚6人で集団移籍</h5>
+          <p>漫画みたいなノリで丸ごと引っ越し。青春でした。</p>
+        </div>
+        <div class="story-arrow">→</div>
+        <div class="story-card">
+          <div class="icon">CH.3</div>
+          <div class="yr">MUSIC DIFF</div>
+          <h5>音楽性の違いで離脱</h5>
+          <p>ここではバンド解散のお決まり理由を採用しました。</p>
+        </div>
+        <div class="story-arrow">→</div>
+        <div class="story-card highlight">
+          <div class="icon">CH.4 · NOW</div>
+          <div class="yr">OAR FREE — PRESENT</div>
+          <h5>根気強く、結果を積み上げる日々</h5>
+          <p>売上 ×38、CPA −86%、CV ×10。たどり着いたこの場所で、ちゃんと結果を出しています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMBERS ============ -->
+<section class="numbers">
+  <div class="container">
+    <div class="section-label reveal">02 / 実績</div>
+    <h2 class="section-title reveal d1">言葉より、<em>数字</em>。</h2>
+    <p class="nums-lead reveal d2">会議で100語並べるより、<em>1本のグラフ</em>のほうが強い。<br>これまでの仕事を、定量で。</p>
+
+    <!-- Stat grid -->
+    <div class="stat-grid">
+      <div class="stat-card reveal">
+        <div class="k">担当案件数</div>
+        <div class="v">19<span class="u">件</span></div>
+        <div class="d">業種・予算帯は多岐に。<br>マルチアカウント運用が日常。</div>
+        <div class="glyph">19</div>
+      </div>
+      <div class="stat-card accent reveal d1">
+        <div class="k">4年目目標達成率</div>
+        <div class="v">78<span class="u">%</span></div>
+        <div class="d">半期の全KPIに対して<br>通算の達成率。</div>
+        <div class="glyph">78</div>
+      </div>
+      <div class="stat-card reveal d2">
+        <div class="k">売上リフト（士業）</div>
+        <div class="v">×38</div>
+        <div class="d">単月 25万 → 950万。<br>過去最大の伸び幅。</div>
+        <div class="glyph">×38</div>
+      </div>
+      <div class="stat-card reveal d3">
+        <div class="k">CV最大倍率</div>
+        <div class="v">×10</div>
+        <div class="d">美容医療の事例。<br>CPAも同時に大幅削減。</div>
+        <div class="glyph">×10</div>
+      </div>
+    </div>
+
+    <!-- Case rows -->
+    <div class="section-label reveal" style="margin-top:20px">03.1 / CASE FILES</div>
+    <div class="cases">
+
+      <div class="case reveal">
+        <div class="title">士業クライアント
+          <span class="sub">Legal / Accounting / Judicial</span>
+        </div>
+        <div class="metric">
+          <div class="m">
+            <div class="ml">単月売上</div>
+            <div class="mv"><span class="old">25万</span><span class="arrow">→</span><span class="new">950万</span></div>
+          </div>
+          <div class="m">
+            <div class="ml">ROAS</div>
+            <div class="mv"><span class="old">170%</span><span class="arrow">→</span><span class="new">400%</span></div>
+          </div>
+        </div>
+        <div class="big-gain">×38<small>Sales Lift</small></div>
+      </div>
+
+      <div class="case reveal d1">
+        <div class="title">FAGA商材
+          <span class="sub">Men's Hair Clinic</span>
+        </div>
+        <div class="metric">
+          <div class="m">
+            <div class="ml">CPA</div>
+            <div class="mv"><span class="new">−73%</span></div>
+          </div>
+          <div class="m">
+            <div class="ml">CV数</div>
+            <div class="mv"><span class="new">×4</span></div>
+          </div>
+        </div>
+        <div class="big-gain">−73%<small>CPA Cut</small></div>
+      </div>
+
+      <div class="case reveal d2">
+        <div class="title">美容医療
+          <span class="sub">Aesthetic Medical</span>
+        </div>
+        <div class="metric">
+          <div class="m">
+            <div class="ml">CPA</div>
+            <div class="mv"><span class="new">−86%</span></div>
+          </div>
+          <div class="m">
+            <div class="ml">CV数</div>
+            <div class="mv"><span class="new">×10</span></div>
+          </div>
+        </div>
+        <div class="big-gain">×10<small>Conversions</small></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRENGTHS ============ -->
+<section class="strengths">
+  <div class="container">
+    <div class="section-label reveal">03 / 強み</div>
+    <h2 class="section-title reveal d1">私の強みは、<em>根気強さ</em>です。</h2>
+    <p class="str-lead reveal d2">自己PRというにはちょっと個人的な、<em>根気強さの原点</em>が詰まった3エピソード。</p>
+
+    <div class="str-grid">
+      <div class="str-card reveal">
+        <div class="slide-num"><em>01</em>/ 03</div>
+        <div class="illust">
+          <svg viewBox="0 0 100 80">
+            <circle cx="58" cy="14" r="6"/>
+            <path d="M55 22 L48 42 L34 52"/>
+            <path d="M55 22 L68 32 L62 50"/>
+            <path d="M48 42 L42 62 L30 68"/>
+            <path d="M62 50 L72 60 L80 56"/>
+            <path d="M8 72 L92 72" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <h4>小学校マラソン大会<br><em style="font-style:normal;color:var(--accent);font-weight:800">6年連続1位</em>。</h4>
+        <p>毎年諦めずに練習を続けた結果、6年間連続で1位を獲得しました。この経験から、<em>結果は継続の先にある</em>という信念が生まれました。</p>
+        <div class="foot">Since Age 6 — Chiba Pref.</div>
+      </div>
+
+      <div class="str-card reveal d1">
+        <div class="slide-num"><em>02</em>/ 03</div>
+        <div class="illust">
+          <svg viewBox="0 0 100 80">
+            <path d="M10 40 L30 25 L45 35 L55 30"/>
+            <path d="M90 40 L70 25 L55 35 L45 30"/>
+            <path d="M38 42 L46 50 L54 50 L62 42"/>
+            <path d="M42 46 L50 54"/>
+            <path d="M58 46 L50 54"/>
+            <circle cx="20" cy="20" r="4"/>
+            <circle cx="80" cy="20" r="4"/>
+            <text x="50" y="74" text-anchor="middle" font-family="Bebas Neue" font-size="11" fill="#d6ff3f" stroke="none">$50 → $20</text>
+          </svg>
+        </div>
+        <h4>初海外、<em style="font-style:normal;color:var(--accent);font-weight:800">50ドルを20ドル</em>に<br>値切る。</h4>
+        <p>初めての海外でCDと写真代50ドルを請求されました。持ち前の根気強さとユーモアで粘り続け、20ドルへの交渉に成功しました。この経験から、<em>どんな局面でも諦めない交渉力</em>が身につきました。</p>
+        <div class="foot">First Overseas Trip</div>
+      </div>
+
+      <div class="str-card reveal d2">
+        <div class="slide-num"><em>03</em>/ 03</div>
+        <div class="illust">
+          <svg viewBox="0 0 100 80">
+            <path d="M15 20 L40 14 L62 22 L85 16 L85 60 L62 66 L40 58 L15 64 Z"/>
+            <path d="M40 14 L40 58" stroke-dasharray="2 3"/>
+            <path d="M62 22 L62 66" stroke-dasharray="2 3"/>
+            <path d="M22 30 Q 35 38, 50 32 T 78 40" stroke="#d6ff3f" stroke-width="2"/>
+            <circle cx="22" cy="30" r="2.5" fill="#d6ff3f" stroke="none"/>
+            <path d="M76 36 L82 40 L76 44 Z" fill="#d6ff3f" stroke="none"/>
+          </svg>
+        </div>
+        <h4>方向音痴のまま、<br><em style="font-style:normal;color:var(--accent);font-weight:800">北海道・東南アジア・エジプト</em>を制覇。</h4>
+        <p>地図が読めなくても諦めないことで補いました。ヒッチハイクで北海道縦断、東南アジア一周、エジプト縦断を達成しました。この経験から、<em>手段がなくても目標に向かい続ける力</em>が養われました。</p>
+        <div class="foot">Hitch-hike / Backpack</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEDIA / STRENGTHS ============ -->
+<section class="media">
+  <div class="container">
+    <div class="section-label reveal">04 / 運用媒体 & 得意領域</div>
+    <h2 class="section-title reveal d1">だいたい<em>どこでも</em>運用できます。</h2>
+
+    <div class="media-grid">
+      <div class="reveal">
+        <h4 class="sub-h" style="font-family:'Shippori Mincho',serif;font-size:20px;font-weight:700;margin-bottom:18px">運用経験媒体</h4>
+        <div class="media-logos">
+          <div class="media-logo"><div class="ml-icon">G</div><div class="ml-name">Google</div><div class="ml-sub">Search / GDN</div></div>
+          <div class="media-logo"><div class="ml-icon">▶</div><div class="ml-name">YouTube</div><div class="ml-sub">Video Ads</div></div>
+          <div class="media-logo"><div class="ml-icon">Y!</div><div class="ml-name">Yahoo!</div><div class="ml-sub">YDA / YSA</div></div>
+          <div class="media-logo"><div class="ml-icon">M</div><div class="ml-name">Meta</div><div class="ml-sub">FB / IG</div></div>
+          <div class="media-logo"><div class="ml-icon">♪</div><div class="ml-name">TikTok</div><div class="ml-sub">Short Video</div></div>
+          <div class="media-logo"><div class="ml-icon">𝕏</div><div class="ml-name">X</div><div class="ml-sub">Promoted</div></div>
+          <div class="media-logo"><div class="ml-icon">SN</div><div class="ml-name">SmartNews</div><div class="ml-sub">Ads+</div></div>
+          <div class="media-logo"><div class="ml-icon">+</div><div class="ml-name">その他</div><div class="ml-sub">As needed</div></div>
+        </div>
+      </div>
+
+      <div class="strong-box reveal d1">
+        <h4>得意領域</h4>
+        <ul>
+          <li>
+            <div class="n">01</div>
+            <div class="t">
+              <strong>士業案件</strong>
+              <span>弁護士・税理士・司法書士。難しい商材の"わかりやすい訴求"が得意です。</span>
+            </div>
+          </li>
+          <li>
+            <div class="n">02</div>
+            <div class="t">
+              <strong>女性ターゲット案件</strong>
+              <span>美容医療・コスメ・ライフスタイル系。クリエイティブ設計まで踏み込みます。</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="container" style="position:relative;z-index:2">
+    <div class="cta-big reveal">
+      <span class="sm">ここまで読んでくれてありがとうございます。</span>
+      気軽に<br>DMください。
+    </div>
+    <div class="reveal d1">
+      <a class="cta-action" onclick="copyMsg(this)" href="#">
+        <span>Slack で声かける</span>
+        <span class="arrow">→</span>
+      </a>
+      <p class="cta-sub" style="margin-top:20px">Slackで @皆藤駿介 を検索 / 相談・雑談・なんでも</p>
+    </div>
+    <div class="cta-footer reveal d2">
+      <div class="sig">Shunsuke Kaito</div>
+      <div>OAR FREE INC. · INTERNAL USE · 2026</div>
+      <div id="clock2">—</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Clock
+(function(){
+  const pad=n=>String(n).padStart(2,'0');
+  const tick=()=>{
+    const d=new Date();
+    const t=`${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} JST`;
+    const a=document.getElementById('clock');const b=document.getElementById('clock2');
+    if(a)a.textContent=t;if(b)b.textContent=t;
+  };
+  tick();setInterval(tick,1000);
+})();
+
+// Reveal
+(function(){
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+// CTA: click feedback
+function copyMsg(el){
+  const orig=el.querySelector('span').textContent;
+  el.querySelector('span').textContent='→ Slackを開いてください！';
+  setTimeout(()=>{el.querySelector('span').textContent=orig},1800);
+}
+</script>
+
+</body>
+</html>
